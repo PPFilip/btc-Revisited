@@ -121,11 +121,11 @@ d1 %>%
   geom_line(aes(y = DCA, color = 'DCA, 12 monthly installments')) +
   scale_y_log10(labels = scales::comma) +
   labs(
-    title = 'Present value of investment executed on a given day',
+    title = 'Present value of BTC investment executed on a given day',
     y = 'Present value',
     x = 'Date',
     color = '',
-    subtitle = sprintf('Presented by Shitcoin Ninja (%s)', date_now)
+    caption = sprintf('Presented by Shitcoin Ninja (%s)', date_now)
   ) +
   theme(legend.position = 'bottom')
 ```
@@ -188,9 +188,8 @@ d1 %>% mutate(DIFF = LUMP-DCA, SIGN = DIFF < 0) %>%
     y = 'Performance difference (LUMP - DCA)',
     x = 'Date',
     color = 'Winning strategy',
-    subtitle = sprintf('Presented by Shitcoin Ninja (%s)', date_now),
-    linetype = 'asdf', 
-    caption = ''
+    caption = sprintf('Presented by Shitcoin Ninja (%s)', date_now),
+    linetype = 'asdf'
   ) +
   theme(legend.position = 'bottom')
 ```
