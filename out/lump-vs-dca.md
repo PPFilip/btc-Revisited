@@ -131,6 +131,7 @@ d1 %>%
 ```
 
 ![plot of chunk unnamed-chunk-4](lump-vs-dca//unnamed-chunk-4-1.png)
+
 Aside from the fact, that we did not lose money no matter what strategy or time to invest have we chosen (up to this day(tm)), we can draw several conclusions:
 
 
@@ -168,6 +169,34 @@ We can also look at how good or bad these strategies perform on the days they ar
 * On the days **LS** wins, it wins over **DCA** by $165052 on average (or $91952 in median value)
 
 So, not only does **DCA** win only in 23.02% of cases, its performance is on average, 10.18 times **worse** even when it wins, and its median value is 6.57 times **worse**
+
+## Difference in performance illustrated
+
+
+```r
+group_transitions = function(x) c(0,cumsum(x[-1L] != x[-length(x)]))+1
+
+d1 %>% mutate(DIFF = LUMP-DCA, SIGN = DIFF < 0) %>% 
+  ggplot(aes(x = DATE)) +
+  geom_line(aes(y = DIFF, color = WIN, group=group_transitions(SIGN))) +
+  geom_hline(aes(yintercept = -dca_median_win_by, color = 'DCA', linetype = 'DCA')) +
+  geom_hline(aes(yintercept = lump_median_win_by, color = 'LUMP', linetype = 'LUMP')) +
+  scale_linetype_manual(name = "Median performance", values = c(3, 3)) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(
+    title = 'Difference in strategy performance',
+    y = 'Performance difference (LUMP - DCA)',
+    x = 'Date',
+    color = 'Winning strategy',
+    subtitle = sprintf('Presented by Shitcoin Ninja (%s)', date_now),
+    linetype = 'asdf', 
+    caption = ''
+  ) +
+  theme(legend.position = 'bottom')
+```
+
+![plot of chunk unnamed-chunk-7](lump-vs-dca//unnamed-chunk-7-1.png)
+
 
 # Conclusion
 
