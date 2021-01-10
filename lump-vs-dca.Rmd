@@ -153,14 +153,16 @@ lump_win_by <- d1 %>% filter(WIN == 'LUMP') %>% mutate(LUMP_WIN_BY = LUMP - DCA)
 dca_mean_win_by <- round(mean(dca_win_by))
 lump_mean_win_by <- round(mean(lump_win_by))
 
+dca_median_win_by <- round(median(dca_win_by))
+lump_median_win_by <- round(median(lump_win_by))
 ```
 
 We can also look at how good or bad these strategies perform on the days they are winning
 
-* On the days **DCA** wins, it wins over **LS** by $`r sprintf('%i', dca_mean_win_by)` on average
-* On the days **LS** wins, it wins over **DCA** by $`r sprintf('%i', lump_mean_win_by)` on average
+* On the days **DCA** wins, it wins over **LS** by $`r sprintf('%i', dca_mean_win_by)` on average (or $`r sprintf('%i', dca_median_win_by)` in median value)
+* On the days **LS** wins, it wins over **DCA** by $`r sprintf('%i', lump_mean_win_by)` on average (or $`r sprintf('%i', lump_median_win_by)` in median value)
 
-So, not only does **DCA** win only in `r dca_wins_p`% of cases, its performance is on average, `r round(lump_mean_win_by/dca_mean_win_by,2)` times **worse** even when it wins.
+So, not only does **DCA** win only in `r dca_wins_p`% of cases, its performance is on average, `r round(lump_mean_win_by/dca_mean_win_by,2)` times **worse** even when it wins, and its median value is `r round(lump_median_win_by/dca_median_win_by,2)` times **worse**
 
 # Conclusion
 
