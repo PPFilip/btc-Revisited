@@ -9,6 +9,10 @@ This is a continuation of an older project [btc-investing](https://github.com/PP
 Compare 2 investment strategies over a longer period of time
 
 
+## Reading
+
+These articles are published on [shitcoin.ninja](https://shitcoin.ninja) , but you can read them [directly from project directory](https://github.com/PPFilip/btc-Revisited/blob/main/out/) - just select a .md notebook of interest and open it.
+
 ## Building output
 
 If you want to build files yourself, I suggest you use
