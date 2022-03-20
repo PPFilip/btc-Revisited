@@ -1,5 +1,5 @@
 ---
-title: "DCA vs Lump Sum (2021-01 edition)"
+title: "DCA vs Lump Sum (2022-03 edition)"
 output:
   html_document:
     df_print: paged
@@ -53,7 +53,7 @@ price_now <- data %>% tail(1) %>% pull(PRICE)
 date_now <- data %>% tail(1) %>% pull(DATE)
 ```
 
-BTC prices from 2015-02-09 up to 2021-01-10 . With these, we can calculate values of our **LS** and **DCA** investments, started at any given day.
+BTC prices from 2015-02-09 up to 2022-03-17 . With these, we can calculate values of our **LS** and **DCA** investments, started at any given day.
 
 # Calculating present value of investment
 
@@ -149,7 +149,7 @@ dca_wins_p <- round(dca_wins/total_days * 100, 2)
 lump_wins_p <- round(lump_wins/total_days * 100, 2)
 ```
 
-From 2015-02-09 to 2021-01-10 (2163 days), investing via **LS** would win 1665 times (76.98%) while investing via **DCA** would win 498 times (23.02)
+From 2015-02-09 to 2022-03-17 (2594 days), investing via **LS** would win 1832 times (70.62%) while investing via **DCA** would win 762 times (29.38)
 
 
 ```r
@@ -165,10 +165,10 @@ lump_median_win_by <- round(median(lump_win_by))
 
 We can also look at how good or bad these strategies perform on the days they are winning
 
-* On the days **DCA** wins, it wins over **LS** by $16212 on average (or $13998 in median value)
-* On the days **LS** wins, it wins over **DCA** by $165052 on average (or $91952 in median value)
+* On the days **DCA** wins, it wins over **LS** by $11249 on average (or $8917 in median value)
+* On the days **LS** wins, it wins over **DCA** by $152311 on average (or $52997 in median value)
 
-So, not only does **DCA** win only in 23.02% of cases, its performance is on average, 10.18 times **worse** even when it wins, and its median value is 6.57 times **worse**
+So, not only does **DCA** win only in 29.38% of cases, its performance is on average, 13.54 times **worse** even when it wins, and its median value is 5.94 times **worse**
 
 ## Difference in performance illustrated
 
@@ -199,7 +199,7 @@ d1 %>% mutate(DIFF = LUMP-DCA, SIGN = DIFF < 0) %>%
 
 # Conclusion
 
-If you decide to invest in BTC, Lump Sum yields statistically superior results. Past performance shows, that Lump Sum wins in 76.98% of cases, and when it wins, it performs 10.18 times better.
+If you decide to invest in BTC, Lump Sum yields statistically superior results. Past performance shows, that Lump Sum wins in 70.62% of cases, and when it wins, it performs 13.54 times better.
 
 
 
